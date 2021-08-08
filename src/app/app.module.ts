@@ -11,6 +11,8 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
+import { MovieContainerComponent } from './movie-container/movie-container.component';
+import { MovieCardComponent } from './movie-card/movie-card.component';
 
 registerLocaleData(en);
 
@@ -19,6 +21,8 @@ registerLocaleData(en);
     AppComponent,
     HomeComponent,
     NavbarComponent,
+    MovieContainerComponent,
+    MovieCardComponent,
    
   ],
   imports: [

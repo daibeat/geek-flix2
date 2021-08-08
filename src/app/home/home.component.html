@@ -1,23 +1,8 @@
 <h1 class="title text-center h1-responsive">Geek Flix</h1>
 
+<app-movie-container></app-movie-container>
 
-<div class="container">
-    <div class="row">
-        <div class="col-4 col-md-4 col-lg-3" *ngFor="let movieEl of movies">
-
-            <a routerLink="/movie-detail/{{ movieEl.id }}">
-                <img class="card-img-top" src="https://image.tmdb.org/t/p/w400/{{ movieEl.poster_path }}"
-                    alt="Card image" />
-            </a>
-            <div class="card-body">
-                <h5 class="card-title">{{ movieEl.title }}</h5>
-                <p class="card-text">{{ movieEl.overview }}</p>
-            </div>
-
-        </div>
-    </div>
-</div>
 
 <div class="jumbotron text-center" style="margin-bottom:0">
-    <p>© Contact</p>
+    <p>Footer © Contact</p>
 </div>
