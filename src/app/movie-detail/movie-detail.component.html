@@ -1,15 +1,4 @@
-<h1 class="title text-center h1-responsive">Movie detail </h1>
+<h1>Movie detail </h1>
 
-<div>
-    <img *ngFor="let movieEl of movies" class="" src="https://image.tmdb.org/t/p/w400/{{ movieEl.backdrop_path }}"
-        alt="" />
-</div>
-<div *ngFor="let movieEl of movies">
-    <h2>{{movieEl.title}}</h2>
-    <div class="row">
-        <div class="col-md-3 photo">
 
-            <h2 *ngIf="movies">{{movieEl.id}}</h2>
-        </div>
-    </div>
-</div>
+<app-movie-desc [movie]="movie"></app-movie-desc>

@@ -1,18 +1,21 @@
+
 import { Movie, MovieV2, PagedResults } from '../movie';
 import { MovieService } from '../movie.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 
 @Component({
-  selector: 'app-movie-card',
-  templateUrl: './movie-card.component.html',
-  styleUrls: ['./movie-card.component.less']
+  selector: 'app-movies-container',
+  templateUrl: './movies.component.html',
+  styleUrls: ['./movies.component.less']
 })
 
-export class MovieCardComponent implements OnInit {
-  public movie!: MovieV2[];
+export class MovieContainerComponent implements OnInit {
+  public movies!: MovieV2[];
 
-  constructor(private movieService: MovieService,private route: ActivatedRoute,) { }
+  constructor(private movieService: MovieService,
+    private route: ActivatedRoute,
+  ) { }
 
   ngOnInit(): void {
     this.getMovies();
@@ -24,11 +27,10 @@ export class MovieCardComponent implements OnInit {
         // Note: Given we have paged results, do we want to go and get the next page, and the page after that etc?
         // OR: do we want to have a button at the bottom that gets the next page etc?
         console.log(pagedResults.results);
-        this.movie = pagedResults.results;
+        this.movies = pagedResults.results;
       });
   }
 
 }
-
 
 

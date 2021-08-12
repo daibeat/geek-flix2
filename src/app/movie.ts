@@ -21,7 +21,7 @@ export interface PagedResults {
 
 export interface MovieV2 {
   adult: boolean;
-  backdrop_path?: string;
+  backdrop_path: string;
   genre_ids: number[];
   id: number;
   original_language: string;
