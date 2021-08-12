@@ -5,7 +5,6 @@ import { Observable, of } from 'rxjs';
 import { Movie, PagedResults } from './movie';
 import { MessageService } from './message.service';
 import { environment } from '../environments/environment.prod';
-import { MovieV2 } from "./movie";
 
 @Injectable({
   providedIn: 'root',
@@ -27,18 +26,19 @@ export class MovieService {
     this.messageService.add(`MovieService: ${message}`);
   }
 
-  getMovieDetails(): Observable<PagedResults> {
+  getMovies(): Observable<PagedResults> {
     const url = `${this.baseUrl}/discover/movie${this.key}&sort_by=release_date.desc&primary_release_date.lte=2020-12-30&include_adult=false&include_video=false&page=1`;
     return this.http.get<PagedResults>(url);
   }
+
  /*  getMovieId(): Observable<PagedResults> {
     const title = `${this.baseUrl}//discover/movie${this.key}&sort_by=release_date.desc&primary_release_date.lte=2020-12-30&include_adult=false&include_video=false&page=1`;
     return this.http.get<PagedResults>(title);
-  }
+  }*/
 
   getMovie(id: Number): Observable<any> {
     return this.http.get(`${this.baseUrl}movie/${id}?api_key=${this.key}`);
-  } */
+  } 
 
   /**
    * Handle Http operation that failed.
