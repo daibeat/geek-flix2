@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { MovieService } from '../movie.service';
 import { Movie, PagedResults, } from '../movie';
 @Component({
@@ -9,16 +10,17 @@ import { Movie, PagedResults, } from '../movie';
 export class MovieDescComponent implements OnInit {
   @Input() movie!: Movie;
 
-  constructor(private movieService: MovieService) { }
+  constructor(private movieService: MovieService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getMovieDesc();
+    this.getMovieDesc(this.route.snapshot.paramMap.get('id'));
   }
 
-  getMovieDesc(): void {
-    this.movieService.getMovie(11165).subscribe(
+  getMovieDesc(id: any): void {
+    this.movieService.getMovie(id).subscribe(
       (themovie: Movie) => {
-        console.log(themovie);
+        this.movie = themovie
+        console.log (themovie);
       });
   }
 }

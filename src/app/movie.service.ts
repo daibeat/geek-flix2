@@ -32,7 +32,7 @@ export class MovieService {
   }
 
   getMovie(id: number): Observable<Movie> {
-    const movie = `${this.baseUrl}/movie/${id}/images${this.key}&language=en-US`;
+    const movie = `${this.baseUrl}/movie/${id}${this.key}&language=en-US`;
     return this.http.get<Movie>(movie);
   }
   /**
