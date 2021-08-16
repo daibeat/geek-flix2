@@ -27,19 +27,14 @@ export class MovieService {
   }
 
   getMovies(): Observable<PagedResults> {
-    const url = `${this.baseUrl}/discover/movie${this.key}&sort_by=release_date.desc&primary_release_date.lte=2020-12-30&include_adult=false&include_video=false&page=1`;
+    const url = `${this.baseUrl}/discover/movie${this.key}&sort_by=release_date.desc&primary_release_date.lte=2021-08-16&include_adult=false&include_video=false&page=1`;
     return this.http.get<PagedResults>(url);
   }
 
- /*  getMovieId(): Observable<PagedResults> {
-    const title = `${this.baseUrl}//discover/movie${this.key}&sort_by=release_date.desc&primary_release_date.lte=2020-12-30&include_adult=false&include_video=false&page=1`;
-    return this.http.get<PagedResults>(title);
-  }*/
-
-  getMovie(id: Number): Observable<any> {
-    return this.http.get(`${this.baseUrl}movie/${id}?api_key=${this.key}`);
-  } 
-
+  getMovie(id: number): Observable<Movie> {
+    const movie = `${this.baseUrl}/movie/${id}/images${this.key}&language=en-US`;
+    return this.http.get<Movie>(movie);
+  }
   /**
    * Handle Http operation that failed.
    * Let the app continue.

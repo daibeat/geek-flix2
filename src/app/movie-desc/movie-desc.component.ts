@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MovieService } from '../movie.service';
-import { ActivatedRoute } from "@angular/router";
-import { Movie, } from '../movie';
+import { Movie, PagedResults, } from '../movie';
 @Component({
   selector: 'app-movie-desc',
   templateUrl: './movie-desc.component.html',
@@ -10,7 +9,16 @@ import { Movie, } from '../movie';
 export class MovieDescComponent implements OnInit {
   @Input() movie!: Movie;
 
-  constructor() { }
+  constructor(private movieService: MovieService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getMovieDesc();
+  }
+
+  getMovieDesc(): void {
+    this.movieService.getMovie(11165).subscribe(
+      (themovie: Movie) => {
+        console.log(themovie);
+      });
+  }
 }
