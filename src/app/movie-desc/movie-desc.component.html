@@ -1,9 +1,7 @@
-
-<div *ngIf="movie">
+<div class="movie-cont" *ngIf="movie">
     <h2>{{movie.title}}</h2>
-</div>
-<div>
-    <img class="card-img" src="https://image.tmdb.org/t/p/w400/{{ movie.backdrop_path }}" alt="Card image" />
+<div class="movie-det">
+    <img class="movie-img" src="https://image.tmdb.org/t/p/w400/{{ movie.backdrop_path }}" alt="movie image" />
     <p>{{movie.overview}}</p>
 </div>
-
+</div>
